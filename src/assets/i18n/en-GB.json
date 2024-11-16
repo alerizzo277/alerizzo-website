@@ -1,7 +1,8 @@
 {
     "application": {
-        "title": "Ale Rizzo Website",
+        "title": "Alessandro Rizzo",
         "name": "Alessandro Rizzo",
-        "description": "Graduated in Computer Science from the University of Trento. Experience in full-stack development with particular focus on PHP, MySQL and Angular. Currently working as an Angular developer at Job Informatica"
+        "developer": "Software Developer",
+        "description": "Graduated in Computer Science from the University of Trento, with experience in full-stack development, specializing in PHP, MySQL, and Angular. Currently employed as an Angular developer at "
     }
 }

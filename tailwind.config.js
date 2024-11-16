@@ -2,7 +2,14 @@
 module.exports = {
   content: ['./src/**/*.{html,ts,js,tsx}'], // ensure it includes all relevant file types
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary-color': '#00AFF0'
+      },
+      fontFamily: {
+        sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

@@ -1,11 +1,39 @@
 <div class="container mx-auto h-full">
-    <div class="flex flex-row gap-4">
-        <img src="assets/me.jpg" height="300" width="320" class="rounded-md">
-        <div class="flex flex-col gap-4">
-            <ion-text>{{ 'application.name' | translate }}</ion-text>
-            <div>
-                <ion-text>{{ 'application.description' | translate }}</ion-text>
-            </div>
+    <div class="flex flex-col">
+        <div class="flex flex-row gap-4">
+            <img src="assets/me.jpg" height="300" width="320" class="rounded-md">
+            <div class="flex flex-col gap-4 mx-4">
+				<div class="flex flex-col gap-4">
+					<div class="flex flex-col">
+						<!-- <ion-text class="text-2xl">{{ 'application.name' | translate }}</ion-text>
+						<ion-text>{{ 'application.developer' | translate }}</ion-text> -->
+						<img src="assets/logo_transp.png" height="150" width="500" alt="Logo"/>
+					</div>
+					<div>
+						<ion-text>
+							Graduated in Computer Science from the <a href="https://www.unitn.it/en" target="_blank">University of Trento</a>, with experience in full-stack development, specializing in PHP, MySQL, and Angular. Currently employed as an Angular developer at <a href="https://www.jobinformatica.com/en/" target="_blank">Job Informatica</a>
+						</ion-text>
+					</div>
+				</div>
+				<div class="border-2 border-primary-color rounded-md">
+					<div class="bg-primary text-white w-full font-bold p-1">
+						<ion-text>Technologies</ion-text>
+					</div>
+					<div class="flex flex-row gap-32 items-center justify-center rounded-md p-2">
+						<div class="w-32 h-32">
+							<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
+						</div>
+						<div class="w-32 h-32">
+							<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
+						</div>
+						<div class="w-32 h-32">
+							<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
+						</div>
+						<div class="w-32 h-32">
+							<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
+						</div>
+					</div>
+				</div>
         </div>
     </div>
 </div>
