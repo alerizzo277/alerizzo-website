@@ -1,5 +1,7 @@
 {
     "application": {
-        "title": "Ale Rizzo website"
+        "title": "Ale Rizzo website",
+        "name": "Alessandro Rizzo",
+        "description": "Graduated in Computer Science from the University of Trento. Experience in full-stack development with particular focus on PHP, MySQL and Angular. Currently working as an Angular developer at Job Informatica"
     }
 }
