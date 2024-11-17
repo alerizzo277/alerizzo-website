@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-color': '#00AFF0'
+        'primary-color': '#000000'
       },
       fontFamily: {
         sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
