@@ -1,38 +1,39 @@
-<div class="container mx-auto h-full font-mono">
-    <div class="flex flex-col gap-16">
 
-		<div class="flex flex-col border-4 border-primary-color rounded-md">
-			<div class="bg-primary text-white w-full font-bold p-1">
-				<ion-text class="text-xl">{{ 'application.developer' | translate }}</ion-text>
-			</div>
-			<div class="flex flex-row gap-4 p-4">
-				<div>
-					<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color w-fit">
+<ng-container *ngIf="getScreenWidth > 580; else vertical">
+	<div class="container mx-auto h-full font-mono">
+		<div class="flex flex-col gap-16">
+
+			<div class="flex flex-col border-4 border-primary-color rounded-md">
+				<div class="bg-primary text-white w-full font-bold p-1">
+					<ion-text class="text-xl">{{ 'application.developer' | translate }}</ion-text>
 				</div>
-				<div class="flex flex-col gap-4 mx-4 justify-between">
-					<div class="flex flex-col gap-4">
+				<div class="flex flex-row gap-4 p-4">
+					<div>
+						<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color w-fit">
+					</div>
+					<div class="flex flex-col gap-4 mx-4 justify-between">
 						<div class="flex flex-col gap-4">
-							<ion-text>{{ 'application.description.paragraph1' | translate }}</ion-text>
-							<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
-							<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
+							<div class="flex flex-col gap-4">
+								<ion-text>{{ 'application.description.paragraph1' | translate }}</ion-text>
+								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
+								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
+							</div>
+						</div>
+						<div class="flex flex-row gap-4 self-end">
+							<a href="https://www.unitn.it/en" target="_blank">
+								<img src="assets/unitn.png" height="70" width="70">
+							</a>
+							<a href="https://www.jobinformatica.com/en/" target="_blank">
+								<img src="assets/jobinformatica.png" height="70" width="70">
+							</a>
 						</div>
 					</div>
-					<div class="flex flex-row gap-4 self-end">
-						<a href="https://www.unitn.it/en" target="_blank">
-							<img src="assets/unitn.png" height="70" width="70">
-						</a>
-						<a href="https://www.jobinformatica.com/en/" target="_blank">
-							<img src="assets/jobinformatica.png" height="70" width="70">
-						</a>
-					</div>
 				</div>
 			</div>
-		</div>
 
-		<ng-container *ngIf="getScreenWidth > 580; else vertical">
 			<div class="border-4 border-primary-color rounded-md">
 				<div class="bg-primary text-white w-full font-bold p-1">
-					<ion-text class="text-xl">Technologies</ion-text>
+					<ion-text class="text-xl">{{ 'application.technologies' | translate }}</ion-text>
 				</div>
 				<div class="flex flex-row items-center justify-center rounded-md p-4" [ngClass]="{'gap-32': getScreenWidth > 1024, 'gap-4':  getScreenWidth < 1024}">
 					<div class="w-32 h-32">
@@ -52,9 +53,49 @@
 					</div>
 				</div>
 			</div>
-		</ng-container>
+		
+			<app-documents-area class="w-1/2"></app-documents-area>
 
-		<ng-template #vertical>
+
+		</div>
+	</div>
+</ng-container>
+
+
+
+<ng-template #vertical>
+	<div class="container mx-auto h-full font-mono">
+		<div class="flex flex-col gap-16">
+	
+			<div class="flex flex-col border-4 border-primary-color rounded-md">
+				<div class="bg-primary text-white w-full font-bold p-1">
+					<ion-text class="text-xl">{{ 'application.developer' | translate }}</ion-text>
+				</div>
+				<div class="flex flex-row gap-4 p-4">
+					<div>
+						<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color w-fit">
+					</div>
+					<div class="flex flex-col gap-4 mx-4 justify-between">
+						<div class="flex flex-col gap-4">
+							<div class="flex flex-col gap-4">
+								<ion-text>{{ 'application.description.paragraph1' | translate }}</ion-text>
+								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
+								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
+							</div>
+						</div>
+						<div class="flex flex-row gap-4 self-end">
+							<a href="https://www.unitn.it/en" target="_blank">
+								<img src="assets/unitn.png" height="70" width="70">
+							</a>
+							<a href="https://www.jobinformatica.com/en/" target="_blank">
+								<img src="assets/jobinformatica.png" height="70" width="70">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+	
 			<div class="border-4 border-primary-color rounded-md w-fit self-center">
 				<div class="bg-primary text-white w-full font-bold p-1">
 					<ion-text class="text-xl">Technologies</ion-text>
@@ -77,5 +118,6 @@
 					</div>
 				</div>
 			</div>
-		</ng-template>
-</div>
+		</div>
+	</div>
+</ng-template>

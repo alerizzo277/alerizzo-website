@@ -4,13 +4,15 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CommonModule } from '@angular/common';
+import { DocumentsAreaComponent } from './components/documents-area/documents-area.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    HomePageComponent
+    HomePageComponent,
+    DocumentsAreaComponent
   ],
   imports: [
     IonicModule,
