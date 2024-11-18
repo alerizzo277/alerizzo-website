@@ -29,27 +29,53 @@
 			</div>
 		</div>
 
-		<div class="border-4 border-primary-color rounded-md">
-			<div class="bg-primary text-white w-full font-bold p-1">
-				<ion-text class="text-xl">Technologies</ion-text>
+		<ng-container *ngIf="getScreenWidth > 580; else vertical">
+			<div class="border-4 border-primary-color rounded-md">
+				<div class="bg-primary text-white w-full font-bold p-1">
+					<ion-text class="text-xl">Technologies</ion-text>
+				</div>
+				<div class="flex flex-row items-center justify-center rounded-md p-4" [ngClass]="{'gap-32': getScreenWidth > 1024, 'gap-4':  getScreenWidth < 1024}">
+					<div class="w-32 h-32">
+						<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
+					</div>
+				</div>
 			</div>
-			<div class="flex flex-row gap-32 items-center justify-center rounded-md p-4">
-				<div class="w-32 h-32">
-					<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
-				</div>
-				<div class="w-32 h-32">
-					<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
-				</div>
-				<div class="w-32 h-32">
-					<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
-				</div>
-				<div class="w-32 h-32">
-					<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
-				</div>
-				<div class="w-32 h-32">
-					<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
-				</div>
-			</div>
-    	</div>
+		</ng-container>
 
+		<ng-template #vertical>
+			<div class="border-4 border-primary-color rounded-md w-fit self-center">
+				<div class="bg-primary text-white w-full font-bold p-1">
+					<ion-text class="text-xl">Technologies</ion-text>
+				</div>
+				<div class="flex flex-col gap-2 items-center justify-center rounded-md p-4">
+					<div class="w-32 h-32">
+						<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
+					</div>
+					<div class="w-32 h-32">
+						<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
+					</div>
+				</div>
+			</div>
+		</ng-template>
 </div>

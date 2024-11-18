@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CommonModule } from './common/common.module';
+import { MyCommonModule } from './common/common.module';
 import { RouteReuseStrategy } from '@angular/router';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -20,7 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
+    MyCommonModule,
     HttpClientModule,
     IonicModule.forRoot(),
     TranslateModule.forRoot({
