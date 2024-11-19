@@ -9,7 +9,11 @@
             "paragraph3": "Driven by a desire for autonomy and continuous improvement, I thrive on solving complex problems and collaborating to deliver impactful solutions."
         },
         "technologies": "Technologies",
-        "documents": "Documents"
+        "docs": {
+            "documents": "Documents",
+            "cv": "Curriculum Vitae",
+            "thesis": "Thesis (It)"
+        }
     }
 }
 
