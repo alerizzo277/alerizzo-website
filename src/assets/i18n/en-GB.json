@@ -13,6 +13,11 @@
             "documents": "Documents",
             "cv": "Curriculum Vitae",
             "thesis": "Thesis (It)"
+        },
+        "projects": {
+            "projects": "Projects",
+            "editing-video": "Editing Video (University)",
+            "erasmus-review": "Erasmus Review (High School)"
         }
     }
 }
