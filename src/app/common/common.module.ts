@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     NavbarComponent,
     HomePageComponent,
-    DocumentsAreaComponent
+    DocumentsAreaComponent,
+    ProjectsAreaComponent
   ],
   imports: [
     IonicModule,
