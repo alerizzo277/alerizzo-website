@@ -5,6 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CommonModule } from '@angular/common';
 import { DocumentsAreaComponent } from './components/documents-area/documents-area.component';
+import { ProjectsAreaComponent } from './components/projects-area/projects-area.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +19,8 @@ import { DocumentsAreaComponent } from './components/documents-area/documents-ar
   imports: [
     IonicModule,
     TranslateModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,
