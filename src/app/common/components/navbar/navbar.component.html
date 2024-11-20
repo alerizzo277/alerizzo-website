@@ -2,11 +2,11 @@
     <div class="flex justify-between items-center">
         <div class="flex flex-row items-center gap-4">
             <img src="assets/favicon/favicon-96x96.png" height="70" width="50" alt="Logo"/>
-            <ion-text class="text-2xl font-medium leading-7 tracking-normal">
+            <ion-text class="font-medium leading-7 tracking-normal" [ngClass]="{'text-2xl': getScreenWidth > 390, 'text-lg': getScreenWidth <= 390}">
                 {{ 'application.title' | translate }}
             </ion-text>
         </div>
-        <div class="flex flex-row gap-4">
+        <div class="flex flex-row gap-4 items-center">
             <a href='https://www.linkedin.com/in/alessandro-rizzo-792556268/' target="_blank"> 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
                     <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
@@ -23,6 +23,15 @@
                         <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path>
                     </svg>           
                 </a>
+            </div>
+            <div class="flex flex-row items-center gap-4">
+                <ion-select
+                    (ionChange)="onSelectLanguageChange()"
+                    [(ngModel)]="language"
+                    interface="popover"
+                    class="flex text-primary text-left uppercase text-ellipsis rounded-md h-auto w-auto px-1">
+                    <ion-select-option *ngFor="let lang of availableLanguages" [value]="lang" class="text-primary">{{ lang }}</ion-select-option>
+                </ion-select>
             </div>
         </div>
     </div>

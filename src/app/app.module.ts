@@ -8,6 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MyCommonModule } from './common/common.module';
 import { RouteReuseStrategy } from '@angular/router';
+import { TranslactionsLocalStorageService } from './common/components/navbar/translaction-local-storage.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: IonicRouteStrategy
     },
     HttpClient,
+    TranslactionsLocalStorageService
   ],
   bootstrap: [AppComponent]
 })
