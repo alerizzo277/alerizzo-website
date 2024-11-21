@@ -1,62 +1,61 @@
 
 <ng-container *ngIf="getScreenWidth > 580; else vertical">
 	<div class="container mx-auto h-full font-mono">
-		<div class="flex flex-col gap-8">
+		<div class="flex flex-col gap-8 justify-between h-full pb-16">
 
-			<div class="flex flex-col border-4 border-primary-color rounded-md">
-				<div class="bg-primary text-white w-full font-bold p-1">
-					<ion-text class="text-xl">{{ 'application.developer' | translate }}</ion-text>
-				</div>
-				<div class="flex flex-row gap-4 p-4">
-					<div>
-						<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color w-fit">
+			<div class="flex flex-col gap-4">
+				<div class="flex flex-col border-4 border-primary-color rounded-md">
+					<div class="bg-primary text-white w-full font-bold p-1">
+						<ion-text class="text-xl">{{ 'application.developer' | translate }}</ion-text>
 					</div>
-					<div class="flex flex-col gap-4 mx-4 justify-between">
-						<div class="flex flex-col gap-4">
+					<div class="flex flex-row gap-4 p-4">
+						<div>
+							<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color w-fit">
+						</div>
+						<div class="flex flex-col gap-4 mx-4 justify-between">
 							<div class="flex flex-col gap-4">
-								<ion-text>{{ 'application.description.paragraph1' | translate }}</ion-text>
-								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
-								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
+								<div class="flex flex-col gap-4">
+									<ion-text>{{ 'application.description.paragraph1' | translate }}</ion-text>
+									<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
+									<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
+								</div>
+							</div>
+							<div class="flex flex-row gap-4 self-end">
+								<a href="https://www.unitn.it/en" target="_blank">
+									<img src="assets/unitn.png" height="70" width="70">
+								</a>
+								<a href="https://www.jobinformatica.com/en/" target="_blank">
+									<img src="assets/jobinformatica.png" height="70" width="70">
+								</a>
 							</div>
 						</div>
-						<div class="flex flex-row gap-4 self-end">
-							<a href="https://www.unitn.it/en" target="_blank">
-								<img src="assets/unitn.png" height="70" width="70">
-							</a>
-							<a href="https://www.jobinformatica.com/en/" target="_blank">
-								<img src="assets/jobinformatica.png" height="70" width="70">
-							</a>
-						</div>
 					</div>
+				</div>
+			
+				<div class="flex flex-row w-full gap-2">
+					<app-documents-area class="w-full"></app-documents-area>
+					<app-projects-area class="w-full"></app-projects-area>
 				</div>
 			</div>
 
-			<div class="border-4 border-primary-color rounded-md">
-				<div class="bg-primary text-white w-full font-bold p-1">
-					<ion-text class="text-lg">{{ 'application.technologies' | translate }}</ion-text>
-				</div>
+			<div class="shadow-2xl rounded-md">
 				<div class="flex flex-row items-center justify-center rounded-md p-4" [ngClass]="{'gap-32': getScreenWidth > 1024, 'gap-4':  getScreenWidth < 1024}">
-					<div class="w-32 h-32">
+					<div class="w-32 h-32 hover:opacity-60">
 						<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
 					</div>
-					<div class="w-32 h-32">
+					<div class="w-32 h-32 hover:opacity-60">
 						<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
 					</div>
-					<div class="w-32 h-32">
+					<div class="w-32 h-32 hover:opacity-60">
 						<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
 					</div>
-					<div class="w-32 h-32">
-						<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
-					</div>
-					<div class="w-32 h-32">
+					<div class="w-32 h-32 hover:opacity-60">
 						<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
 					</div>
+					<div class="w-32 h-32 hover:opacity-60">
+						<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
+					</div>
 				</div>
-			</div>
-		
-			<div class="flex flex-row w-full gap-2">
-				<app-documents-area class="w-full"></app-documents-area>
-				<app-projects-area class="w-full"></app-projects-area>
 			</div>
 
 		</div>
@@ -102,26 +101,31 @@
 				<app-projects-area class="w-full"></app-projects-area>
 			</div>	
 	
-			<div class="border-4 border-primary-color rounded-md w-fit self-center">
-				<div class="bg-primary text-white w-full font-bold p-1">
-					<ion-text class="text-xl">Technologies</ion-text>
-				</div>
+			<div class="shadow-2xl rounded-md w-fit self-center">
 				<div class="flex flex-col gap-2 items-center justify-center rounded-md p-4">
-					<div class="w-32 h-32">
-						<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
+
+					<div class="flex flex-row gap-2 items-center">
+						<div class="w-32 h-32 hover:opacity-60">
+							<img src="assets/angular.gif" class="w-full h-full object-contain rounded-md">
+						</div>
+						<div class="w-32 h-32 hover:opacity-60">
+							<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
+						</div>
 					</div>
-					<div class="w-32 h-32">
-						<img src="assets/graphql.png" class="w-full h-full object-contain rounded-md">
+
+					<div class="flex flex-row gap-2 items-center">
+						<div class="w-32 h-32 hover:opacity-60">
+							<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
+						</div>
+						<div class="w-32 h-32 hover:opacity-60">
+							<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
+						</div>
 					</div>
-					<div class="w-32 h-32">
-						<img src="assets/java.png" class="w-full h-full object-contain rounded-md">
-					</div>
-					<div class="w-32 h-32">
+
+					<div class="w-32 h-32 hover:opacity-60">
 						<img src="assets/php.png" class="w-full h-full object-contain rounded-md">
 					</div>
-					<div class="w-32 h-32">
-						<img src="assets/mysql.png" class="w-full h-full object-contain rounded-md">
-					</div>
+					
 				</div>
 			</div>
 
