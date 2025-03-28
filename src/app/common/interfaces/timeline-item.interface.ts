@@ -3,5 +3,6 @@ export interface TimelineItem {
     startDate: Date,
     endDate?: Date,
     description?: string,
-    thumbnail?: string
+    thumbnail?: string,
+    externalLink?: string
 }

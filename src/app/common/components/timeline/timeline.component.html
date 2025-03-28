@@ -5,7 +5,14 @@
           <div class="flex items-center justify-start mb-8 relative">
             <!-- Circular Thumbnail -->
             <div class="w-12 h-12 rounded-full flex items-center justify-center text-white">
-              <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
+              <ng-container *ngIf="item.externalLink; else noLink">
+                <a [href]="item.externalLink" target="_blank" rel="noopener noreferrer">
+                  <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
+                </a>
+              </ng-container>
+              <ng-template #noLink>
+                <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
+              </ng-template>
             </div>
   
             <!-- Title and Description -->

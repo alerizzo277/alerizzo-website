@@ -24,10 +24,12 @@
 								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
 								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
 							</div>
-							<div class="flex p-8">
+							<div class="flex flex-col gap-2 px-8 py-4">
+								<ion-text class="font-bold">Job Experiences</ion-text>
 								<app-timeline [items]="jobs"></app-timeline>
 							</div>
-							<div class="flex p-8">
+							<div class="flex flex-col gap-2 px-8 py-4">
+								<ion-text class="font-bold">Studies</ion-text>
 								<app-timeline [items]="studies"></app-timeline>
 							</div>
 						</div>

@@ -17,13 +17,15 @@ export class HomePageComponent {
       description: "FrontEnd Developer",
       startDate: new Date("08-01-2024"),
       endDate: new Date("31-03-2025"),
-      thumbnail: "jobinformatica.png"
+      thumbnail: "jobinformatica.png",
+      externalLink: "https://www.jobinformatica.com/en/"
     },
     {
       title: "Argentea",
       description: "FrontEnd Developer",
       startDate: new Date("14-03-2025"),
-      thumbnail: "argentea.png"
+      thumbnail: "argentea.png",
+      externalLink: "https://www.argentea.it/"
     }
   ]
 
@@ -33,13 +35,15 @@ export class HomePageComponent {
       description: "Bachelor Degree",
       startDate: new Date("01-09-2020"),
       endDate: new Date("13-03-2024"),
-      thumbnail: "unitn.png"
+      thumbnail: "unitn.png",
+      externalLink: "https://www.unitn.it/en"
     },
     {
       title: "ITT Vittorio Veneto",
       description: "High School",
       startDate: new Date("14-03-2025"),
-      thumbnail: "iis.png"
+      thumbnail: "iis.png",
+      externalLink: "https://www.iisvittorioveneto.edu.it/"
     }
   ]
 
