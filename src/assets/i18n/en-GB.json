@@ -5,8 +5,8 @@
         "developer": "Software Developer",
         "description": {
             "paragraph1": "Computer Science graduate from the University of Trento with a strong foundation in software development and a passion for creating efficient, user-friendly applications. During my studies, I developed a database management system for the gyms of Aquila Basket and Trentino Volley as my thesis project, demonstrating my ability to tackle real-world challenges.",
-            "paragraph2": "Currently, I work as a front-end developer at Job Informatica, contributing to the production management software for Electrolux. My technical expertise includes Angular, TypeScript, REST APIs, and InfluxDB, supported by certifications like Cisco IT-Essential and Cisco CCNA Routing and Switching.",
-            "paragraph3": "Driven by a desire for autonomy and continuous improvement, I thrive on solving complex problems and collaborating to deliver impactful solutions."
+            "paragraph2": "Currently, I work as a front-end developer at Argentea S.r.l. in Trento, focusing on building and enhancing web applications. Prior to this, I contributed to the production management software for Electrolux while working at Job Informatica, gaining valuable experience in developing complex business applications.",
+            "paragraph3": "My technical expertise includes Angular, TypeScript, REST APIs, and InfluxDB, supported by certifications like Cisco IT-Essential and Cisco CCNA Routing and Switching. Driven by a desire for autonomy and continuous improvement, I thrive on solving complex problems and collaborating to deliver impactful solutions."
         },
         "technologies": "Technologies",
         "docs": {
