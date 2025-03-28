@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DocumentsAreaComponent } from './components/documents-area/documents-area.component';
 import { ProjectsAreaComponent } from './components/projects-area/projects-area.component';
 import { FormsModule } from '@angular/forms';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HomePageComponent,
     DocumentsAreaComponent,
-    ProjectsAreaComponent
+    ProjectsAreaComponent,
+    TimelineComponent
   ],
   imports: [
     IonicModule,

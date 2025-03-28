@@ -24,6 +24,12 @@
 								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
 								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
 							</div>
+							<div class="flex p-8">
+								<app-timeline [items]="jobs"></app-timeline>
+							</div>
+							<div class="flex p-8">
+								<app-timeline [items]="studies"></app-timeline>
+							</div>
 						</div>
 						<div class="flex flex-row gap-4 self-end">
 							<a href="https://www.unitn.it/en" target="_blank">
