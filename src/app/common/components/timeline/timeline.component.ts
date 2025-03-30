@@ -7,5 +7,5 @@ import { TimelineItem } from '../../interfaces/timeline-item.interface'
   styleUrl: './timeline.component.scss'
 })
 export class TimelineComponent {
-  @Input() items: TimelineItem[] = []
+  @Input() items: TimelineItem[] = []  
 }

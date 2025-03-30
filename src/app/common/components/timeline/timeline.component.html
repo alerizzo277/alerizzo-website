@@ -1,32 +1,33 @@
 <div class="relative">
-    <ng-container *ngIf="items.length > 0; else noItems">
-      <div class="flex flex-col">
-        <ng-container *ngFor="let item of items; let i = index">
-          <div class="flex items-center justify-start mb-8 relative">
-            <!-- Circular Thumbnail -->
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white">
-              <ng-container *ngIf="item.externalLink; else noLink">
-                <a [href]="item.externalLink" target="_blank" rel="noopener noreferrer">
-                  <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
-                </a>
-              </ng-container>
-              <ng-template #noLink>
+  <ng-container *ngIf="items.length > 0; else noItems">
+    <div class="flex flex-col">
+      <ng-container *ngFor="let item of items; let i = index">
+        <div class="flex items-center justify-start mb-8 relative">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white">
+            <ng-container *ngIf="item.externalLink; else noLink">
+              <a [href]="item.externalLink" target="_blank" rel="noopener noreferrer">
                 <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
-              </ng-template>
-            </div>
-  
-            <!-- Title and Description -->
-            <div class="ml-6">
-              <div class="font-semibold text-lg">{{ item.title }}</div>
-              <div *ngIf="item.description" class="text-sm text-gray-600 mt-1">{{ item.description }}</div>
-            </div>
+              </a>
+            </ng-container>
+            <ng-template #noLink>
+              <img [alt]="item.thumbnail" [src]="'assets/' + item.thumbnail" class="w-10 h-10 rounded-full" />
+            </ng-template>
           </div>
-        </ng-container>
-      </div>
-    </ng-container>
-  
-    <ng-template #noItems>
-      <ion-text>No items available</ion-text>
-    </ng-template>
-  </div>
-  
+
+          <div class="ml-6">
+            <div class="font-semibold text-lg">{{ item.title }}</div>
+            <div class="text-sm text-gray-500">
+              {{ item.startDate | date:'MMM yyyy' }} - 
+              {{ item.endDate ? (item.endDate | date:'MMM yyyy') : 'Present' }}
+            </div>
+            <div *ngIf="item.description" class="text-sm text-gray-600 mt-1">{{ item.description }}</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #noItems>
+    <ion-text>No items available</ion-text>
+  </ng-template>
+</div>
