@@ -1,5 +1,5 @@
 
-<ng-container *ngIf="getScreenWidth > 695; else vertical">
+<ng-container *ngIf="getScreenWidth > 989; else vertical">
 	<div class="mx-auto h-full text-lg" [ngClass]="{'container': getScreenWidth > 2000}">
 		<div class="flex flex-col gap-8 justify-between h-full">
 
@@ -25,21 +25,15 @@
 								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
 							</div>
 							<div class="flex flex-col gap-2 px-8 py-4">
-								<ion-text class="font-bold">Job Experiences</ion-text>
-								<app-timeline [items]="jobs"></app-timeline>
+								<div class="flex flex-col gap-2">
+									<ion-text class="font-bold">{{ 'application.timeline.jobs' | translate }}</ion-text>
+									<app-timeline [items]="jobs"></app-timeline>
+								</div>
+								<div class="flex flex-col gap-2">
+									<ion-text class="font-bold">{{ 'application.timeline.studies' | translate }}</ion-text>
+									<app-timeline [items]="studies"></app-timeline>
+								</div>
 							</div>
-							<div class="flex flex-col gap-2 px-8 py-4">
-								<ion-text class="font-bold">Studies</ion-text>
-								<app-timeline [items]="studies"></app-timeline>
-							</div>
-						</div>
-						<div class="flex flex-row gap-4 self-end">
-							<a href="https://www.unitn.it/en" target="_blank">
-								<img src="assets/unitn.png" height="70" width="70">
-							</a>
-							<a href="https://www.argentea.it/" target="_blank">
-								<img src="assets/argentea.png" height="70" width="70">
-							</a>
 						</div>
 					</div>
 				</div>
@@ -92,13 +86,15 @@
 							<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
 						</div>
 					</div>
-					<div class="flex flex-row gap-4 self-end">
-						<a href="https://www.unitn.it/en" target="_blank">
-							<img src="assets/unitn.png" height="70" width="70">
-						</a>
-						<a href="https://www.argentea.it/" target="_blank">
-							<img src="assets/argentea.png" height="70" width="70">
-						</a>
+					<div class="flex flex-col gap-2 px-8 py-4">
+						<div class="flex flex-col gap-2">
+							<ion-text class="font-bold">{{ 'application.timeline.jobs' | translate }}</ion-text>
+							<app-timeline [items]="jobs"></app-timeline>
+						</div>
+						<div class="flex flex-col gap-2">
+							<ion-text class="font-bold">{{ 'application.timeline.studies' | translate }}</ion-text>
+							<app-timeline [items]="studies"></app-timeline>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -20,6 +20,8 @@
             "erasmus-review": "Erasmus Review (High School)"
         },
         "timeline": {
+            "jobs": "Job Experience",
+            "studies": "Studies",
             "present": "Present",
             "unitn": "University of Trento",
             "bachelor-degree": "Bachelor Degree",

@@ -13,6 +13,13 @@ export class HomePageComponent {
 
   jobs: TimelineItem[] = [
     {
+      title: "Argentea",
+      description: "application.timeline.fe-developer",
+      startDate: new Date("2025-04-14"),
+      thumbnail: "argentea.png",
+      externalLink: "https://www.argentea.it/"
+    },
+    {
       title: "Job Informatica",
       description: "application.timeline.fe-developer",
       startDate: new Date("2024-01-08"),
@@ -20,13 +27,6 @@ export class HomePageComponent {
       thumbnail: "jobinformatica.png",
       externalLink: "https://www.jobinformatica.com/en/"
     },
-    {
-      title: "Argentea",
-      description: "application.timeline.fe-developer",
-      startDate: new Date("2025-04-14"),
-      thumbnail: "argentea.png",
-      externalLink: "https://www.argentea.it/"
-    }
   ]
 
   studies: TimelineItem[] = [
