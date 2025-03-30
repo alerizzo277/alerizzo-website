@@ -13,7 +13,7 @@
 						<app-projects-area class="w-full"></app-projects-area>
 					</div>
 				</div>
-				<div class="bg-gray-100 w-2/3 basis-4/5 p-8 shadow">
+				<div class="bg-gray-100 w-2/3 basis-4/5 p-8 shadow overflow-auto">
 					<div class="flex flex-col gap-4 mx-4 justify-between h-full">
 						<div class="flex flex-col gap-4">
 							<div class="w-full font-bold">
@@ -24,16 +24,30 @@
 								<ion-text>{{ 'application.description.paragraph2' | translate }}</ion-text>
 								<ion-text>{{ 'application.description.paragraph3' | translate }}</ion-text>
 							</div>
-							<div class="flex flex-col gap-2 px-8 py-4">
-								<div class="flex flex-col gap-2">
-									<ion-text class="font-bold">{{ 'application.timeline.jobs' | translate }}</ion-text>
-									<app-timeline [items]="jobs"></app-timeline>
+							<ng-container *ngIf="getScreenHeight > 1100; else horizontalTimeline">
+								<div class="flex flex-col gap-2 px-8 py-4">
+									<div class="flex flex-col gap-2">
+										<ion-text class="font-bold">{{ 'application.timeline.jobs' | translate }}</ion-text>
+										<app-timeline [items]="jobs"></app-timeline>
+									</div>
+									<div class="flex flex-col gap-2">
+										<ion-text class="font-bold">{{ 'application.timeline.studies' | translate }}</ion-text>
+										<app-timeline [items]="studies"></app-timeline>
+									</div>
 								</div>
-								<div class="flex flex-col gap-2">
-									<ion-text class="font-bold">{{ 'application.timeline.studies' | translate }}</ion-text>
-									<app-timeline [items]="studies"></app-timeline>
+							</ng-container>
+							<ng-template #horizontalTimeline>
+								<div class="flex flex-row justify-around">
+									<div class="flex flex-col gap-2">
+										<ion-text class="font-bold">{{ 'application.timeline.jobs' | translate }}</ion-text>
+										<app-timeline [items]="jobs"></app-timeline>
+									</div>
+									<div class="flex flex-col gap-2">
+										<ion-text class="font-bold">{{ 'application.timeline.studies' | translate }}</ion-text>
+										<app-timeline [items]="studies"></app-timeline>
+									</div>
 								</div>
-							</div>
+							</ng-template>
 						</div>
 					</div>
 				</div>
@@ -74,7 +88,7 @@
 					<div class="flex flex-col gap-4">
 						<div class="flex flex-row gap-8 items-center px-4">
 							<div>
-								<img src="assets/me.jpg" class="rounded-full m-2 border-4 border-primary-color h-28 min-w-28">
+								<img src="assets/me.jpg" class="rounded-full m-2 h-28 min-w-28">
 							</div>
 							<div class="font-bold w-full">
 								<ion-text class="text-2xl">{{ 'application.developer' | translate }}</ion-text>
