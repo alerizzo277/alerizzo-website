@@ -18,6 +18,17 @@
             "projects": "Progetti",
             "editing-video": "Editing Video (Università)",
             "erasmus-review": "Erasmus Review (Superiori)"
+        },
+        "timeline": {
+            "present": "Presente",
+            "unitn": "Università di Trento",
+            "bachelor-degree": "Laurea Triennale",
+            "itt": "ITT Vittorio Veneto",
+            "fe-developer": "Sviluppatore Frontend",
+            "high-school": "Scuola Superiore"
         }
+    },
+    "messages": {
+        "no-items-available": "Non ci sono dati disponibili"
     }
 }

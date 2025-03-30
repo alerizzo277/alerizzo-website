@@ -18,7 +18,18 @@
             "projects": "Projects",
             "editing-video": "Editing Video (University)",
             "erasmus-review": "Erasmus Review (High School)"
+        },
+        "timeline": {
+            "present": "Present",
+            "unitn": "University of Trento",
+            "bachelor-degree": "Bachelor Degree",
+            "itt": "ITT Vittorio Veneto",
+            "fe-developer": "Frontend developer",
+            "high-school": "High School"
         }
+    },
+    "messages": {
+        "no-items-available": "No items available"
     }
 }
 

@@ -14,7 +14,7 @@ export class HomePageComponent {
   jobs: TimelineItem[] = [
     {
       title: "Job Informatica",
-      description: "Frontend Developer",
+      description: "application.timeline.fe-developer",
       startDate: new Date("2024-01-08"),
       endDate: new Date("2025-03-31"),
       thumbnail: "jobinformatica.png",
@@ -22,7 +22,7 @@ export class HomePageComponent {
     },
     {
       title: "Argentea",
-      description: "Frontend Developer",
+      description: "application.timeline.fe-developer",
       startDate: new Date("2025-04-14"),
       thumbnail: "argentea.png",
       externalLink: "https://www.argentea.it/"
@@ -31,16 +31,16 @@ export class HomePageComponent {
 
   studies: TimelineItem[] = [
     {
-      title: "University of Trento",
-      description: "Bachelor Degree",
+      title: "application.timeline.unitn",
+      description: "application.timeline.bachelor-degree",
       startDate: new Date("2020-09-01"),
       endDate: new Date("2024-03-13"),
       thumbnail: "unitn.png",
       externalLink: "https://www.unitn.it/en"
     },
     {
-      title: "ITT Vittorio Veneto",
-      description: "High School",
+      title: "application.timeline.itt",
+      description: "application.timeline.high-school",
       startDate: new Date("2015-09-01"),
       endDate: new Date("2020-06-25"),
       thumbnail: "iis.png",
