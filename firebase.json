@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/alerizzo-website",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

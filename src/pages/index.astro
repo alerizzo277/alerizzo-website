@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Profile from '../components/profile/Profile.astro';
+import MotoryBanner from '../components/projects/MotoryBanner.astro';
+import TechnologyCarousel from '../components/technologies/TechnologyCarousel.astro';
+import Timeline from '../components/timeline/Timeline.astro';
+import { experience } from '../data/experience';
+import { education } from '../data/education';
+import { it } from '../i18n/it';
+---
+<MainLayout title={it.title} description={it.description}>
+  <Profile />
+  <div class="timelines">
+    <Timeline id="experience" title={it.timeline.experience} entries={experience} showDuration />
+    <Timeline id="education" title={it.timeline.education} entries={education} />
+  </div>
+  <MotoryBanner />
+  <TechnologyCarousel />
+</MainLayout>
+<style>
+  .timelines { display: grid; gap: var(--space-6); margin-top: var(--space-5); }
+  @media (min-width: 64rem) { .timelines { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); } }
+</style>

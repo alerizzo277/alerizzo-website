@@ -1,0 +1,15 @@
+export const technologies = [
+  { name: 'Angular', icon: 'angular' },
+  { name: 'React', icon: 'react' },
+  { name: 'TypeScript', icon: 'typescript' },
+  { name: 'JavaScript', icon: 'javascript' },
+  { name: 'Java', icon: 'java' },
+  { name: 'NestJS', icon: 'nestjs' },
+  { name: 'Node.js', icon: 'nodejs' },
+  { name: 'GraphQL', icon: 'graphql' },
+  { name: 'PostgreSQL', icon: 'postgresql' },
+  { name: 'Prisma', icon: 'prisma' },
+  { name: 'InfluxDB', icon: 'influxdb' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Git', icon: 'git' },
+] as const;

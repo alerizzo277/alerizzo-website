@@ -1,0 +1,53 @@
+---
+import { site } from '../../data/site';
+import { it } from '../../i18n/it';
+import SocialIcon from './SocialIcon.astro';
+---
+<header class="site-chrome site-header">
+  <div class="chrome-inner header-inner">
+    <a class="brand" href="/" aria-label={site.name}>
+      <img src="/logos/ar/favicon-96x96.png" width="40" height="40" alt="" />
+      <span>{site.name}</span>
+    </a>
+    <div class="header-controls">
+    <nav aria-label={it.headerSocial} data-i18n-aria-label="headerSocial">
+      <ul class="header-social">
+        {site.social.filter(link => link.icon !== 'github').map(link => (
+          <li><a class="icon-link" href={link.href} aria-label={`${link.name}${it.newTab}`} data-i18n-social={link.name} target="_blank" rel="noopener noreferrer"><SocialIcon name={link.icon} /></a></li>
+        ))}
+      </ul>
+    </nav>
+    <div class="language-picker" hidden>
+      <button class="language-trigger" id="language-trigger" type="button" aria-label={it.languageLabel} data-i18n-aria-label="languageLabel" aria-haspopup="menu" aria-expanded="false" aria-controls="language-menu">
+        <span class="language-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18" /></svg>
+          <span id="language-active">IT</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </span>
+      </button>
+      <div id="language-menu" class="language-menu" role="menu" aria-label={it.languageLabel} data-i18n-aria-label="languageLabel" hidden>
+        {[{ locale: 'it-IT', label: 'Italiano' }, { locale: 'en-GB', label: 'English' }].map(language => (
+          <button type="button" role="menuitemradio" aria-checked={language.locale === 'it-IT' ? 'true' : 'false'} data-locale={language.locale} lang={language.locale} tabindex="-1">
+            <span>{language.label}</span>
+            <svg class="language-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>
+          </button>
+        ))}
+      </div>
+      <select id="language-select" aria-label={it.languageLabel} data-i18n-aria-label="languageLabel" hidden>
+        <option value="it-IT">IT</option><option value="en-GB">EN</option>
+      </select>
+    </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .language-picker { position: relative; }
+  .language-trigger { display: flex; align-items: center; min-height: var(--control-height); padding: 3px 0; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-on-chrome); font: inherit; cursor: pointer; }
+  .language-pill { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; padding-inline: var(--space-2); border: 1px solid #383838; border-radius: var(--radius-pill); background: #202020; font-size: .8125rem; }
+  .language-trigger:hover .language-pill { background: #303030; }
+  .language-menu { position: absolute; top: calc(100% + var(--space-2)); right: 0; min-width: 148px; padding: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-medium); background: var(--color-card); color: var(--color-text); box-shadow: 0 4px 16px rgb(0 0 0 / .08); }
+  .language-menu button { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); width: 100%; min-height: var(--control-height); padding: var(--space-2); border: 0; border-radius: var(--radius-small); background: transparent; color: inherit; font: inherit; font-size: .875rem; text-align: left; cursor: pointer; }
+  .language-menu button:hover, .language-menu button[aria-checked="true"] { background: var(--color-surface); }
+  .language-menu button[aria-checked="false"] .language-check { visibility: hidden; }
+</style>

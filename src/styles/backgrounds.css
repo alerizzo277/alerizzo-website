@@ -1,0 +1,6 @@
+/* D1 — permanent neutral fluid lines, without repetition or animation. */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1800' viewBox='0 0 1600 1800' preserveAspectRatio='none' fill='none'%3E%3Cpath d='M-180 80C520 0 80 650 710 700S1370 1050 1780 860M-140 1320C350 1090 640 1740 1750 1460' stroke='%23dedede' stroke-width='1.5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

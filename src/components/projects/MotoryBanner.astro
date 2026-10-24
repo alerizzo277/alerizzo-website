@@ -1,0 +1,47 @@
+---
+import { site } from '../../data/site';
+import { it } from '../../i18n/it';
+---
+<section class="motory-banner" aria-labelledby="motory-title">
+  <div class="motory-brand">
+    <span class="project-label" data-i18n="motory.personalProject">{it.motory.personalProject}</span>
+    <h2 id="motory-title"><img src="/logos/motory/logo.svg" alt={`${it.motory.name} — ${it.motory.tagline}`} width="720" height="166" loading="lazy" /></h2>
+  </div>
+  <p class="motory-description" data-i18n="motory.description">{it.motory.description}</p>
+  <img class="motory-mockup" src="/logos/motory/mockup-motory.png" alt={it.motory.mockupAlt} data-i18n-alt="motory.mockupAlt" width="1672" height="941" loading="lazy" decoding="async" />
+  <a class="action-button motory-link" href={site.project.href} target="_blank" rel="noopener noreferrer">
+    <span data-i18n="motory.visit">{it.motory.visit}</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+    <span class="sr-only" data-i18n="newTab">{it.newTab}</span>
+  </a>
+</section>
+
+<style>
+  .motory-banner {
+    --motory-blue: #2563eb;
+    --motory-surface: #eff6ff;
+    --motory-border: #dbeafe;
+    --motory-ink: #0f172a;
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    padding: var(--space-4);
+    border: 1px solid var(--motory-border);
+    border-radius: var(--radius-dialog);
+    background: var(--motory-surface);
+    color: var(--motory-ink);
+  }
+  .project-label { display: inline-block; margin-bottom: var(--space-2); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); background: var(--motory-border); color: #1e40af; font-size: .75rem; }
+  h2 { margin: 0; line-height: 1; }
+  .motory-brand { grid-area: brand; }
+  .motory-brand img { width: 155px; height: auto; }
+  .motory-description { grid-area: description; max-width: 52ch; color: var(--motory-ink); font-size: 1rem; }
+  .motory-mockup { grid-area: mockup; width: 100%; max-width: 440px; height: auto; object-fit: contain; justify-self: center; }
+  .motory-link { grid-area: action; justify-self: start; background: var(--motory-blue); border-color: var(--motory-blue); color: var(--color-on-chrome); white-space: nowrap; }
+  .motory-link svg { flex-shrink: 0; }
+  .motory-banner { grid-template-areas: 'brand' 'description' 'mockup' 'action'; }
+  @media (min-width: 48rem) {
+    .motory-banner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: 'brand mockup' 'description mockup' 'action mockup'; column-gap: var(--space-5); align-items: center; }
+    .motory-brand img { width: 180px; }
+  }
+</style>

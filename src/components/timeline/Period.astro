@@ -1,0 +1,8 @@
+---
+import { it } from '../../i18n/it';
+interface Props { start: string; end?: string }
+const { start, end } = Astro.props;
+const format = (value: string) => new Intl.DateTimeFormat('it-IT', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${value}-01T00:00:00Z`));
+---
+<span class="period"><time datetime={start} data-month={start}>{format(start)}</time> – {end ? <time datetime={end} data-month={end}>{format(end)}</time> : <span data-i18n="timeline.present">{it.timeline.present}</span>}</span>
+<style>.period { text-transform: capitalize; }</style>

@@ -1,0 +1,17 @@
+---
+import { site } from '../../data/site';
+import { it } from '../../i18n/it';
+const year = new Date().getFullYear();
+---
+<footer class="site-chrome site-footer">
+  <div class="chrome-inner footer-main">
+    <div class="footer-identity">
+      <img src="/logos/ar/favicon-96x96.png" width="32" height="32" alt="" />
+      <div>
+        <p class="footer-name">{site.name}</p>
+        <p class="footer-meta" data-i18n="role">{site.role}</p>
+      </div>
+    </div>
+    <small>© {year} {site.name}. <span data-i18n="copyright">{it.copyright}</span></small>
+  </div>
+</footer>

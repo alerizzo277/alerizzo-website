@@ -1,0 +1,47 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { site } from '../data/site';
+import { it } from '../i18n/it';
+import '../styles/global.css';
+import '../styles/backgrounds.css';
+import { en } from '../i18n/en';
+import { resolveLocale, languageStorageKey } from '../i18n/locale';
+import { initializeI18n } from '../i18n/runtime';
+import { calendarMonths, formatDurationWithWords } from '../utils/duration';
+const dictionaries = JSON.stringify({ 'it-IT': it, 'en-GB': en }).replaceAll('<', String.fromCharCode(92) + 'u003c');
+const runtime = `(${initializeI18n.toString()})(${dictionaries}, ${resolveLocale.toString()}, ${calendarMonths.toString()}, ${formatDurationWithWords.toString()}, ${JSON.stringify(languageStorageKey)});`;
+const early = `document.documentElement.classList.add('i18n-pending');
+try { document.documentElement.lang = (${resolveLocale.toString()})(localStorage.getItem(${JSON.stringify(languageStorageKey)}), navigator.languages?.length ? navigator.languages : [navigator.language]); } catch {}
+setTimeout(() => { if (document.documentElement.classList.contains('i18n-pending')) { document.documentElement.classList.remove('i18n-pending'); document.documentElement.lang = 'it-IT'; } }, 1000);`;
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang={site.defaultLanguage}>
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline set:html={early} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta data-i18n-content="description" name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/logos/ar/apple-touch-icon.png" />
+    <title data-i18n="title">{title}</title>
+  </head>
+  <body>
+    <a data-i18n="skipToContent" class="skip-link" href="#main-content">{it.skipToContent}</a>
+    <Header />
+    <main id="main-content" class="container" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline set:html={runtime} />
+  </body>
+</html>
