@@ -1,0 +1,97 @@
+---
+import type { TimelineEntry } from '../../data/timeline';
+import { it } from '../../i18n/it';
+import Period from './Period.astro';
+import ExperienceDuration from './ExperienceDuration.astro';
+interface Props { entry: TimelineEntry; showDuration?: boolean }
+const { entry, showDuration = false } = Astro.props;
+---
+<dialog id={`detail-${entry.id}`} aria-labelledby={`title-${entry.id}`} class="detail-dialog">
+  <form method="dialog" class="dialog-close-form">
+    <button class="close-dialog" aria-label={it.timeline.close} data-i18n-aria-label="timeline.close" autofocus>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+    </button>
+  </form>
+  <div class="dialog-content">
+    <div class:list={['dialog-heading', { 'dialog-heading--brand': entry.dialogLogo }]}>
+      {entry.dialogLogo
+        ? <img class="dialog-brand-logo" src={entry.dialogLogo.src} alt={entry.dialogLogo.alt} data-i18n-alt={`entries.${entry.id}.logoAlt`} width={entry.dialogLogo.width} height={entry.dialogLogo.height} />
+        : <img class="dialog-logo" src={entry.logo} alt="" width="48" height="48" />}
+
+      <div>
+        <h2 id={`title-${entry.id}`}>{entry.name}</h2>
+        <p class="dialog-role" data-i18n={`entries.${entry.id}.role`}>{entry.role}</p>
+        <p class="dialog-period"><Period start={entry.start} end={entry.end} />{showDuration && <ExperienceDuration start={entry.start} end={entry.end} />}</p>
+      </div>
+    </div>
+    <div class="dialog-description">{entry.paragraphs.map((paragraph, index) => <p data-i18n={`entries.${entry.id}.paragraphs.${index}`}>{paragraph}</p>)}</div>
+    <div class:list={['dialog-bottom', { 'has-technologies': entry.technologies?.length, 'has-document': entry.document || entry.repository }]}>
+      {entry.technologies?.length && <ul class="technology-labels" aria-label={it.timeline.technologies} data-i18n-aria-label="timeline.technologies">
+        {entry.technologies.map(technology => <li>{technology}</li>)}
+      </ul>}
+      <div class="dialog-actions">
+      {entry.document && <a class="action-button action-button--compact" href={entry.document.href} target="_blank" rel="noopener noreferrer"><span data-i18n={`entries.${entry.id}.documentLabel`}>{entry.document.label}</span> <span aria-hidden="true">↗</span><span class="sr-only" data-i18n="newTab">{it.newTab}</span></a>}
+      {entry.repository && <a class="action-button action-button--compact" href={entry.repository.href} target="_blank" rel="noopener noreferrer">{entry.repository.label} <span aria-hidden="true">↗</span><span class="sr-only" data-i18n="newTab">{it.newTab}</span></a>}
+      <a class:list={['action-button', 'action-button--primary', { 'action-button--compact': entry.document }]} href={entry.website} target="_blank" rel="noopener noreferrer"><span data-i18n="timeline.officialWebsite">{it.timeline.officialWebsite}</span> <span aria-hidden="true">↗</span><span class="sr-only" data-i18n="newTab">{it.newTab}</span></a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-dialog]').forEach(trigger => {
+    const dialog = document.getElementById(trigger.dataset.dialog ?? '');
+    if (!(dialog instanceof HTMLDialogElement)) return;
+    let scrollY = 0;
+    trigger.addEventListener('click', () => {
+      scrollY = window.scrollY;
+      dialog.showModal();
+      document.documentElement.style.setProperty('--dialog-scroll-top', `-${scrollY}px`);
+      document.documentElement.classList.add('dialog-open');
+    });
+    dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('dialog-open');
+      document.documentElement.style.removeProperty('--dialog-scroll-top');
+      window.scrollTo(0, scrollY);
+      trigger.focus({ preventScroll: true });
+    });
+  });
+</script>
+
+<style>
+  .detail-dialog { padding: 0; border: 1px solid var(--color-border); border-radius: var(--radius-dialog) var(--radius-dialog) 0 0; background: var(--color-card); color: var(--color-text); width: 100%; max-width: 100%; max-height: 85dvh; margin: auto 0 0; overflow: hidden; box-shadow: 0 12px 40px rgb(0 0 0 / .12); }
+  .detail-dialog[open] { display: flex; flex-direction: column; }
+  .detail-dialog::backdrop { background: rgb(0 0 0 / .45); }
+  .dialog-close-form { position: absolute; top: var(--space-3); right: max(var(--space-3), env(safe-area-inset-right)); z-index: 1; }
+  .close-dialog { display: grid; place-items: center; width: var(--control-height); height: var(--control-height); border: 0; border-radius: 50%; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+  .close-dialog:hover { background: var(--color-border); }
+  .dialog-content { padding: var(--space-4) max(var(--space-4), env(safe-area-inset-right)) max(var(--space-4), env(safe-area-inset-bottom)) max(var(--space-4), env(safe-area-inset-left)); overflow-y: auto; overscroll-behavior: contain; }
+  .dialog-heading { display: flex; align-items: flex-start; gap: var(--space-3); padding-right: 44px; }
+  .dialog-heading > div { min-width: 0; }
+  .dialog-heading--brand { gap: var(--space-2); }
+  .dialog-brand-logo { width: 100px; height: auto; object-fit: contain; flex-shrink: 0; }
+  .action-button--compact { padding-inline: var(--space-3); font-size: .8125rem; }
+  .dialog-logo { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+  h2 { font-size: 1.125rem; line-height: 1.35; margin: 0 0 var(--space-1); letter-spacing: -.015em; }
+  .dialog-role { font-size: .9375rem; color: var(--color-text-description); }
+  .dialog-period { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); font-size: .8125rem; margin-top: var(--space-1); color: var(--color-text-muted); }
+  .dialog-description { margin-top: var(--space-4); }
+  .dialog-description p + p { margin-top: var(--space-3); }
+  .dialog-bottom { margin-top: var(--space-4); }
+  .dialog-bottom .dialog-actions { margin-top: 0; }
+  .has-technologies { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .has-technologies .dialog-actions { margin-left: auto; }
+  .technology-labels { display: flex; flex-wrap: wrap; gap: var(--space-1); flex: 1 1 10rem; }
+  .technology-labels li { background: var(--color-surface); color: var(--color-text-description); border-radius: var(--radius-pill); padding: var(--space-1) var(--space-2); font-size: .8125rem; }
+  .has-document { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .has-document .technology-labels { grid-row: 1; }
+  .has-document .dialog-actions { grid-row: 2; width: 100%; justify-content: flex-end; gap: var(--space-2); }
+  .has-document .action-button { white-space: nowrap; }
+  @media (min-width: 48rem) {
+    .dialog-brand-logo { width: 130px; }
+    .has-document { display: flex; flex-wrap: nowrap; gap: var(--space-2); }
+    .has-document .technology-labels { flex: 1 1 auto; min-width: 0; }
+    .has-document .dialog-actions { flex: 0 0 auto; width: auto; margin-left: 0; justify-content: space-between; }
+  }
+  @media (min-width: 48rem) { .detail-dialog { width: min(32rem, calc(100% - 3rem)); max-height: 80dvh; margin: auto; border-radius: var(--radius-dialog); } }
+</style>

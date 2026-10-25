@@ -1,0 +1,15 @@
+---
+import type { TimelineEntry } from '../../data/timeline';
+import TimelineItem from './TimelineItem.astro';
+interface Props { id: string; title: string; entries: readonly TimelineEntry[]; showDuration?: boolean }
+const { id, title, entries, showDuration = false } = Astro.props;
+---
+<section aria-labelledby={id}>
+  <h2 id={id} data-i18n={`timeline.${id}`}>{title}</h2>
+  <ol>{entries.map(entry => <TimelineItem entry={entry} showDuration={showDuration} />)}</ol>
+</section>
+<style>
+  section { min-width: 0; }
+  h2 { font-size: 1.25rem; line-height: 1.4; margin: 0 0 var(--space-4); letter-spacing: -.015em; }
+  ol { --timeline-axis: 0px; --timeline-node-size: 9px; --timeline-node-y: 2rem; list-style: none; margin: 0; padding: 0 0 0 var(--space-2); }
+</style>

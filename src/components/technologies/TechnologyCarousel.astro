@@ -1,0 +1,88 @@
+---
+import { technologies } from '../../data/technologies';
+import { it } from '../../i18n/it';
+---
+<section class="technologies" aria-labelledby="technologies-title">
+  <h2 id="technologies-title" data-i18n="technologies.title">{it.technologies.title}</h2>
+  <div class="technology-viewport" id="technology-viewport" tabindex="0" role="region" aria-label={it.technologies.browse} data-i18n-aria-label="technologies.browse">
+    <div class="technology-track">
+      {[false, true].map(duplicate => (
+        <ul class="technology-group" aria-hidden={duplicate ? 'true' : undefined}>
+          {technologies.map(technology => (
+            <li>
+              <img src={`/logos/technologies/${technology.icon}.svg`} width="40" height="40" alt="" loading="lazy" />
+              <span>{technology.name}</span>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector<HTMLElement>('.technologies');
+  const viewport = section?.querySelector<HTMLElement>('.technology-viewport');
+  const track = section?.querySelector<HTMLElement>('.technology-track');
+  const group = section?.querySelector<HTMLElement>('.technology-group');
+  if (section && viewport && track && group) {
+    const pixelsPerSecond = 18;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const measure = () => {
+      // One full group is the exact distance travelled before the seamless repeat.
+      track.style.setProperty('--technology-duration', `${group.getBoundingClientRect().width / pixelsPerSecond}s`);
+      if (!reducedMotion.matches && !section.classList.contains('is-manual')) section.classList.add('is-animated');
+    };
+    const exploreManually = () => {
+      if (!section.classList.contains('is-animated')) return;
+      const transform = getComputedStyle(track).transform;
+      const offset = transform === 'none' ? 0 : -new DOMMatrixReadOnly(transform).m41;
+      section.classList.remove('is-animated');
+      section.classList.add('is-manual');
+      viewport.scrollLeft += offset;
+    };
+    viewport.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'touch' || event.pointerType === 'pen') exploreManually();
+    }, { passive: true });
+    viewport.addEventListener('wheel', event => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) exploreManually();
+    }, { passive: true });
+    viewport.addEventListener('keydown', event => {
+      if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) exploreManually();
+    });
+    reducedMotion.addEventListener('change', () => {
+      section.classList.remove('is-animated');
+      viewport.scrollLeft = 0;
+      measure();
+    });
+    new ResizeObserver(measure).observe(group);
+    measure();
+  }
+</script>
+
+<style>
+  .technologies { --technology-gap: 1.5rem; margin-top: var(--space-5); min-width: 0; }
+  h2 { font-size: 1.25rem; line-height: 1.4; margin: 0; letter-spacing: -.015em; }
+  .technology-viewport { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; padding-block: var(--space-3); scrollbar-width: none; -ms-overflow-style: none; }
+  .technology-viewport::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .technology-track { display: flex; width: max-content; }
+  .is-animated .technology-track { animation: technology-scroll var(--technology-duration) linear infinite; }
+  .technology-group[aria-hidden] { display: none; }
+  .is-animated .technology-group[aria-hidden], .is-manual .technology-group[aria-hidden] { display: flex; }
+  .technology-group { display: flex; align-items: center; gap: var(--technology-gap); padding-right: var(--technology-gap); flex-shrink: 0; }
+  li { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); width: 80px; flex-shrink: 0; }
+  img { width: 36px; height: 36px; object-fit: contain; }
+  li span { color: var(--color-text-description); font-size: .8125rem; white-space: nowrap; }
+  .technologies:hover .technology-track, .technologies:focus-within .technology-track { animation-play-state: paused; }
+  @keyframes technology-scroll { to { transform: translateX(-50%); } }
+  @media (min-width: 48rem) {
+    .technologies { --technology-gap: 2rem; }
+    li { width: 88px; }
+    img { width: 40px; height: 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .technology-viewport { overflow-x: auto; }
+    .technologies .technology-track { animation: none; transform: none; }
+    .technologies .technology-group[aria-hidden] { display: none; }
+  }
+</style>

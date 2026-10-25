@@ -1,0 +1,10 @@
+---
+interface Props { start: string; end?: string }
+const { start, end } = Astro.props;
+---
+<span class="experience-duration" data-duration-start={start} data-duration-end={end} hidden></span>
+
+
+<style>
+  .experience-duration { padding: .1rem .45rem; border-radius: var(--radius-pill); background: var(--color-surface); color: var(--color-text-muted); font-size: .75rem; white-space: nowrap; }
+</style>
