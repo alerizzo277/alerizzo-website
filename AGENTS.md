@@ -56,7 +56,11 @@ Light background palette (semantic tokens):
 }
 ```
 
-Keep semantic tokens centralized in the global stylesheet. D1 is the permanent page background: a near-white base and the approved sparse, thin fluid SVG curves in backgrounds.css, without repetition or animation. Do not add full waves, chromatic gradients, dense patterns, glass effects or background preferences. Only the language preference is persisted; the experimental background selector and its runtime have been removed. Biography and timeline cards share the restrained shadow token without changing timeline geometry. Distinguish primary text, descriptions, and metadata; all text/background combinations must meet WCAG AA contrast (at least 4.5:1 for normal text). Header and footer use pure black.
+Keep semantic tokens centralized in the global stylesheet. D1 is the permanent page background: a near-white base and the approved sparse, thin fluid SVG curves in backgrounds.css, without repetition or animation. Do not add full waves, chromatic gradients, dense patterns, glass effects or background preferences. The experimental background selector and its runtime have been removed. Only the language preference is persisted. Biography and timeline cards share the restrained shadow token without changing timeline geometry. Distinguish primary text, descriptions, and metadata; all text/background combinations must meet WCAG AA contrast (at least 4.5:1 for normal text). Header and footer use pure black.
+
+### Typography
+
+Inter is the sole primary typeface, centralized in --font-family with system-ui, sans-serif as fallbacks, in that order. Load the single local variable WOFF2 at public/fonts/inter-variable.woff2 through the global @font-face (normal, weights 100–900, font-display: swap); retain its OFL license and source metadata. Controls inherit the family. Do not override the family per component or add a permanent font selector or typography preference. Keep approved font sizes, weights, line heights and spacing unchanged.
 
 ### Important Color Rule
 
